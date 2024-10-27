@@ -16,7 +16,7 @@ public static class UrlQueryUtility
 		return value;
 	}
 
-	public static string? Parse(string query, string name)
+	public static string? ParseString(string query, string name)
 	{
 		try
 		{
