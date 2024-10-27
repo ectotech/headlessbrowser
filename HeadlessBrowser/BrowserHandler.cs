@@ -13,7 +13,7 @@ public static class BrowserHandler
 		{
 			if (context == null) throw new Exception("Http listener context is null.");
 
-			var requestToken = UrlQueryUtility.Parse(context.Request.Url?.Query ?? "", "token");
+			var requestToken = UrlQueryUtility.ParseString(context.Request.Url?.Query ?? "", "token");
 			if (requestToken != token)
 			{
 				context.Response.StatusCode = 401;
