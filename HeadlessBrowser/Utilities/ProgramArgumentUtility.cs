@@ -14,7 +14,7 @@ public static class ProgramArgumentUtility
 		return value;
 	}
 
-	public static string? Parse(IEnumerable<string>? args, string name)
+	public static string? ParseString(IEnumerable<string>? args, string name)
 	{
 		try
 		{
@@ -26,7 +26,20 @@ public static class ProgramArgumentUtility
 		}
 	}
 
-	public static TEnum? Parse<TEnum>(IEnumerable<string>? args, string name) where TEnum : struct
+
+	public static bool? ParseBool(IEnumerable<string>? args, string name)
+	{
+		try
+		{
+			return bool.Parse(GetValue(args, name));
+		}
+		catch
+		{
+			return null;
+		}
+	}
+
+	public static TEnum? ParseEnum<TEnum>(IEnumerable<string>? args, string name) where TEnum : struct
 	{
 		try
 		{
