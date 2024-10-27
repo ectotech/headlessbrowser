@@ -2,10 +2,10 @@
 using HeadlessBrowser.Utilities;
 using static HeadlessBrowser.BrowserHandler;
 
-var token = ProgramArgumentUtility.Parse(args, "token");
+var token = ProgramArgumentUtility.ParseString(args, "token");
 if (token == null) throw new Exception("No auth token provided.");
 
-var headless = ProgramArgumentUtility.Parse<bool>(args, "headless") ?? true;
+var headless = ProgramArgumentUtility.ParseBool(args, "headless") ?? true;
 
 var httpListener = new HttpListener();
 httpListener.Prefixes.Add("http://localhost:8080/");
